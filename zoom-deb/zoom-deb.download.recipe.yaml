@@ -1,5 +1,5 @@
 Description: Downloads the latest version of Zoom (64-bit) for Windows
-Identifier: Zoom-deb.download
+Identifier: com.github.SsShigZzZ.download.zoom-deb
 MinimumVersion: '1.0.0'
 
 Input:
