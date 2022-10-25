@@ -22,12 +22,3 @@ Process:
   Arguments:
     predicate: 'download_changed == FALSE'
 
-- Processor: com.github.arequ.SharedProcessors/WinSignatureVerify
-  Arguments:
-    pathname: '%pathname%'
-    expected_subject: '%SUBJECT%'
-    expected_signature: '%SIGNATURE%'
-
-- Processor: com.github.arequ.SharedProcessors/WinVersioner
-  Arguments:
-    pathname: '%pathname%'
