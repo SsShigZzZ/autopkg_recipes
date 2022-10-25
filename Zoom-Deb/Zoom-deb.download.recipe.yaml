@@ -1,0 +1,33 @@
+Description: Downloads the latest version of Zoom (64-bit) for Windows
+Identifier: Zoom-deb.download
+MinimumVersion: '1.0.0'
+
+Input:
+  SIGNATURE: 13FE30A039BCD470A4658D7CEBDB0149BBD8C10D8E2E5BFCF0070A0267F977CD
+  SUBJECT: /C=US/ST=Maryland/L=Columbia/O=Tenable Inc./CN=Tenable Inc.
+  DOWNLOAD_URL: https://zoom.us/client/latest/ZoomInstallerFull.msi?archType=x64
+
+Process:
+- Processor: URLDownloader
+  Arguments:
+    url: '%DOWNLOAD_URL%'
+    prefetch_filename: true
+    request_headers:
+      user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36
+    CHECK_FILESIZE_ONLY: true
+
+- Processor: EndOfCheckPhase
+
+- Processor: StopProcessingIf
+  Arguments:
+    predicate: 'download_changed == FALSE'
+
+- Processor: com.github.arequ.SharedProcessors/WinSignatureVerify
+  Arguments:
+    pathname: '%pathname%'
+    expected_subject: '%SUBJECT%'
+    expected_signature: '%SIGNATURE%'
+
+- Processor: com.github.arequ.SharedProcessors/WinVersioner
+  Arguments:
+    pathname: '%pathname%'
