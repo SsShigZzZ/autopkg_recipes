@@ -5,7 +5,7 @@ MinimumVersion: '1.0.0'
 Input:
   SIGNATURE: 13FE30A039BCD470A4658D7CEBDB0149BBD8C10D8E2E5BFCF0070A0267F977CD
   SUBJECT: /C=US/ST=Maryland/L=Columbia/O=Tenable Inc./CN=Tenable Inc.
-  DOWNLOAD_URL: https://zoom.us/client/latest/ZoomInstallerFull.msi?archType=x64
+  DOWNLOAD_URL: https://zoom.us/client/latest/zoom_amd64.deb
 
 Process:
 - Processor: URLDownloader
